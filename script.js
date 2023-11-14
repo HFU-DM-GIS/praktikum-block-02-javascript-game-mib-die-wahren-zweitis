@@ -5,3 +5,6 @@ var startButton = document.getElementById("startButton");
 startButton.addEventListener("onClick", function() {
     
 })
+
+const button = document.querySelector('button');
+button.addEventListener('click');
