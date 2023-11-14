@@ -31,3 +31,4 @@ var cities =
     "lng": "8.20715"
   },
 ]
+module.exports = {cities}; 
