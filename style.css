@@ -35,7 +35,7 @@ a{
 }
 
 #startButton{
-    background-color:rgb(189, 188, 188); /* Hintergrundfarbe */
+    background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
     font-size: 50px; 
     font-family: 'Courier New', Courier, monospace;
@@ -43,7 +43,27 @@ a{
     border: solid; 
     border-color: black;
     border-radius: 10px; 
-    cursor: pointer; /* Zeige Handcursor beim Überfahren */
-
+    cursor: pointer;
 }
+
+#startButton:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#backButton{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 25px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+#backButton:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
 
