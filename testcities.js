@@ -3,8 +3,8 @@ var cities =
     {
     "country": "GB",
     "name": "Ampthill",
-    "lat": "52.02694",
-    "lng": "-0.49567"
+    "lat": 52.02694,
+    "lng": -0.49567
   }, 
   {
     "country": "MX",
