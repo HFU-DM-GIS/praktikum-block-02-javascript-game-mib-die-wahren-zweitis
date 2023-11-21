@@ -30,4 +30,40 @@ var cities =
     "lat": "48.05156",
     "lng": "8.20715"
   },
+  {
+    "country": "AD",
+    "name": "Sant Julià de Lòria",
+    "lat": "42.46372",
+    "lng": "1.49129"
+  },
+  {
+    "country": "AD",
+    "name": "Pas de la Casa",
+    "lat": "42.54277",
+    "lng": "1.73361"
+  },
+  {
+    "country": "AD",
+    "name": "Ordino",
+    "lat": "42.55623",
+    "lng": "1.53319"
+  },
+  {
+    "country": "AD",
+    "name": "les Escaldes",
+    "lat": "42.50729",
+    "lng": "1.53414"
+  },
+  {
+    "country": "AD",
+    "name": "la Massana",
+    "lat": "42.54499",
+    "lng": "1.51483"
+  },
+  {
+    "country": "AD",
+    "name": "Encamp",
+    "lat": "42.53474",
+    "lng": "1.58014"
+  },
 ]
