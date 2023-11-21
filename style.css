@@ -22,6 +22,12 @@ h1{
     text-align: center;
 }
 
+h2{
+    font-size: 50px;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+
 p{
     font-size: 35px;
     font-family:'Courier New', Courier, monospace;
@@ -63,6 +69,73 @@ a{
 }
 
 #backButton:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#AnswerA {
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 20px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#AnswerA:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#AnswerB{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 20px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#AnswerB:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#AnswerC{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 20px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#AnswerC:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#AnswerD{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 20px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+#AnswerD:hover {
     background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
 }
 
