@@ -57,12 +57,8 @@ function shuffle(array) {
   return array;
 }
 
-  //This is supposed to designate one button as the right answer. Works as it should. 
-  /*function getRandomButton() {
-
-    let randomButton = buttonId[Math.floor(Math.random() * buttonId.length)]; 
-    return randomButton; 
-  } */
+  /*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
+  ziehen davon eine zahl raus und das ist die korrekte antwort*/
 initRandomCityList(); 
 
 displayRandomCityButton("AnswerA");
@@ -96,6 +92,8 @@ displayRandomCityButton("AnswerD");
 console.log(chosenOne);'*/   
 
 /* This is pseudo-code only used to remember tasks:
-1. Write funtion to count the score. Needs a score box as HTML first.
-
+(1. Write funtion to count the score. Needs a score box as HTML first.)
+2. Button funktion einfügen bei den Antworten, sodass richtig und falsch angezeigt wird und damit man zum nächstenm level kommt
+3. antowrtauswahl ändern, sodass nicht nur antwort a richtig ist
+4. städte sollen sich nicht direkt wiederholen
 */ 
