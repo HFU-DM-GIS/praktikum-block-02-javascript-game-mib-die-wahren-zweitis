@@ -17,9 +17,10 @@ body{
 }
 
 h1{
-    font-size: 80px;
+    font-size: 60px;
     font-family:'Courier New', Courier, monospace;
     text-align: center;
+    margin: 10px;
 }
 
 h2{

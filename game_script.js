@@ -2,12 +2,17 @@ let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
 var cityIndex = 0; 
 let cityIndicies = []; 
 
+
+
+let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
+
 /*Use these to change BBox. TODO: Write funktion that changes src of slippy map. Standard format: bbox = left,bottom,right,top
                                                                                                   bbox = min Longitude , min Latitude , max Longitude , max Latitude */
 let bBoxLeft
 let bBoxBottom
 let bBoxRight
 let bBoxTop
+
 
 //Modify this to also return lat, lng of the city. These are needed to direct slippy map to correct tile. Also change so no citys can be displayed twice.  
 function getRandomCityName() {
@@ -71,7 +76,9 @@ displayRandomCityButton("AnswerD");
   // get coordinates (bbox) of this city
   let lonOfCity = cities[cityIndicies[correctCityIndex]].lng;
   let latOfCity = cities[cityIndicies[correctCityIndex]].lat;
-  let mapSizeInGPS = 0.1;
+  //let lonOfCity = cities[0].lng;
+  //let latOfCity = cities[0].lat;
+  let mapSizeInGPS = 0.001;
   let minLon = lonOfCity - mapSizeInGPS;
   let maxLon = lonOfCity + mapSizeInGPS;
   let minLat = latOfCity - mapSizeInGPS;
@@ -82,7 +89,7 @@ displayRandomCityButton("AnswerD");
   // change html code to display the city
   let gameMap = document.getElementById("GameMap");
   console.log(gameMap.getAttribute('src'));
-  let mapLink = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox[0]+ '%2C' + bbox[1] + '%2C26.03759765625%2C57.124314084296216&layer=mapnik'
+  let mapLink = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox[0]+ '%2C' + bbox[1] + '%2C' + bbox[2] + '%2C' + bbox[3] + '&layer=mapnik'
   gameMap.setAttribute('src', mapLink);
 
 /*let chosenOne = getRandomButton(); 
