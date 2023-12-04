@@ -1,46 +1,38 @@
 let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
-var cityIndex = 0; 
-let cityIndicies = []; 
-
-
+var cityIndex = 0;
+let cityIndicies = [];
+let cityAnswerOptn = [];
+let score = 0;
 
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
 
-/*Use these to change BBox. TODO: Write funktion that changes src of slippy map. Standard format: bbox = left,bottom,right,top
-                                                                                                  bbox = min Longitude , min Latitude , max Longitude , max Latitude */
-let bBoxLeft
-let bBoxBottom
-let bBoxRight
-let bBoxTop
-
-
-//Modify this to also return lat, lng of the city. These are needed to direct slippy map to correct tile. Also change so no citys can be displayed twice.  
 function getRandomCityName() {
 
-    let randomCity = cities[cityIndicies[cityIndex]];
-    cityIndex++; 
-    return randomCity.name; 
-  }
-  
+  let randomCity = cities[cityIndicies[cityIndex]];
+  cityIndex++;
+  cityAnswerOptn.push(randomCity);
+  return randomCity.name;
+}
+
 function displayRandomCityButton(buttonId) {
 
   let cityName = getRandomCityName();
   document.getElementById(buttonId).innerText = "Antwort " + buttonId.charAt(buttonId.length - 1) + ": " + cityName;
 }
 
-function initRandomCityList(){
+function initRandomCityList() {
 
   //Get number of cities in list
-  let numCitys = cities.length; 
+  let numCitys = cities.length;
   //Generate array of city indices
-  cityIndicies = Array.from(Array(numCitys).keys()); 
+  cityIndicies = Array.from(Array(numCitys).keys());
   //Shuffle indicies 
-  shuffle(cityIndicies); 
-  
+  shuffle(cityIndicies);
+
 }
 //Copied from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-  let currentIndex = array.length,  randomIndex;
+  let currentIndex = array.length, randomIndex;
 
   // While there remain elements to shuffle.
   while (currentIndex > 0) {
@@ -50,30 +42,44 @@ function shuffle(array) {
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
   }
 
   return array;
 }
 
-  /*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
-  ziehen davon eine zahl raus und das ist die korrekte antwort*/
-initRandomCityList(); 
+/*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
+ziehen davon eine zahl raus und das ist die korrekte antwort*/
+initRandomCityList();
 
 displayRandomCityButton("AnswerA");
 displayRandomCityButton("AnswerB");
 displayRandomCityButton("AnswerC");
 displayRandomCityButton("AnswerD");
 
-// show map of one of the cities
+//Shuffles the array that contains all answer options. 
+shuffle(cityAnswerOptn);
+
+//Only used for debugging. TODO: delete later.
+document.getElementById("RightAnswer").innerText = cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name;
+
+//Displays the correct part of the map. 
+setMapToAnswer();
+
+//Problem? Map is displayed in local language. 
+function setMapToAnswer() {
+
+  // show map of one of the cities
   // random choice of four cities
-  let correctCityIndex = 0; 
+  let correctCityIndex = 0;
   // get coordinates (bbox) of this city
-  let lonOfCity = cities[cityIndicies[correctCityIndex]].lng;
-  let latOfCity = cities[cityIndicies[correctCityIndex]].lat;
+  let lonOfCity = Number(cityAnswerOptn[correctCityIndex].lng);
+  let latOfCity = Number(cityAnswerOptn[correctCityIndex].lat);
+
+  console.log(lonOfCity, latOfCity);
   //let lonOfCity = cities[0].lng;
   //let latOfCity = cities[0].lat;
+
   let mapSizeInGPS = 0.001;
   let minLon = lonOfCity - mapSizeInGPS;
   let maxLon = lonOfCity + mapSizeInGPS;
@@ -85,15 +91,32 @@ displayRandomCityButton("AnswerD");
   // change html code to display the city
   let gameMap = document.getElementById("GameMap");
   console.log(gameMap.getAttribute('src'));
-  let mapLink = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox[0]+ '%2C' + bbox[1] + '%2C' + bbox[2] + '%2C' + bbox[3] + '&layer=mapnik'
+  let mapLink = 'https://www.openstreetmap.org/export/embed.html?bbox=' + bbox[0] + '%2C' + bbox[1] + '%2C' + bbox[2] + '%2C' + bbox[3] + '&layer=mapnik'
   gameMap.setAttribute('src', mapLink);
 
-/*let chosenOne = getRandomButton(); 
-console.log(chosenOne);'*/   
+}
+
+//Sets all button links to wrong. Usefull to rest game.  
+function setLinksToWrong() {
+
+  for (let i = 0; i < buttonId.length; i++) {
+
+    var wrongURL = "wrong_screen.html";
+    document.getElementById(buttonId[i]).href = wrongURL;
+
+  }
+
+}
+
+function setLinkToRight() {
+
+
+}
+
 
 /* This is pseudo-code only used to remember tasks:
 (1. Write funtion to count the score. Needs a score box as HTML first.)
 2. Button funktion einfügen bei den Antworten, sodass richtig und falsch angezeigt wird und damit man zum nächstenm level kommt
 3. antowrtauswahl ändern, sodass nicht nur antwort a richtig ist
 4. städte sollen sich nicht direkt wiederholen
-*/ 
+*/
