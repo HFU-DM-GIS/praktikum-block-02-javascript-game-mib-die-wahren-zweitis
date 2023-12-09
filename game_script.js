@@ -1,16 +1,19 @@
 let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
-let buttonObj =[buttonA, buttonB, buttonC, buttonD]; 
 var cityIndex = 0;
 let cityIndicies = [];
 let cityAnswerOptn = [];
-let score = 0;
+let score = localStorage.getItem(UserScore);
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
 
 const buttonA = {
 
   identity : "AnswerA",
 
-  isAnswer : false
+  NameOfCity : "None",
+
+  longitude : 0,
+
+  latitude : 0, 
 
 };
 
@@ -18,7 +21,11 @@ const buttonB = {
 
   identity : "AnswerB",
 
-  isAnswer : false
+  NameOfCity : "None",
+
+  longitude : 0,
+
+  latitude : 0, 
 
 };
 
@@ -26,7 +33,11 @@ const buttonC = {
 
   identity : "AnswerC",
 
-  isAnswer : false
+  NameOfCity : "None",
+
+  longitude : 0,
+
+  latitude : 0, 
 
 };
 
@@ -34,24 +45,45 @@ const buttonD = {
 
   identity : "AnswerD",
 
-  isAnswer : false
+  NameOfCity : "None",
+
+  longitude : 0,
+
+  latitude : 0, 
 
 };
 
+let buttonObj =[buttonA, buttonB, buttonC, buttonD]; 
+
+//Code testing / debugging. TODO: Delete later. 
 console.log(buttonA.identity, typeof(buttonA.identity));
 
 
-function getRandomCityName() {
+function getRandomCityName(buttonId) {
 
   let randomCity = cities[cityIndicies[cityIndex]];
   cityIndex++;
+
   cityAnswerOptn.push(randomCity);
+
+  for(let i = 0; i < buttonObj.length; i ++){
+
+    if(buttonId == buttonObj[i].identity){
+
+      buttonObj[i].NameOfCity = randomCity.name;
+      buttonObj[i].latitude = randomCity.lat;
+      buttonObj[i].longitude = randomCity.lng;  
+
+    }
+  }
+  console.log(buttonObj); 
+
   return randomCity.name;
 }
 
 function displayRandomCityButton(buttonId) {
 
-  let cityName = getRandomCityName();
+  let cityName = getRandomCityName(buttonId);
   document.getElementById(buttonId).innerText = "Antwort " + buttonId.charAt(buttonId.length - 1) + ": " + cityName;
 }
 
@@ -101,8 +133,10 @@ document.getElementById("RightAnswer").innerText = cityAnswerOptn[0].lng + " " +
 //Displays the correct part of the map. 
 setMapToAnswer();
 
-
+//Code testing / debugging. TODO: Delete later.
 console.log(cityAnswerOptn); 
+
+checkButtonsForRightAnswer(); 
 
 //Problem? Map is displayed in local language. 
 function setMapToAnswer() {
@@ -135,26 +169,45 @@ function setMapToAnswer() {
 }
 
 //Sets all button links to wrong. Usefull to rest game.  
-function setLinksToWrong() {
+function setLinksToWrongPage() {
 
   for (let i = 0; i < buttonId.length; i++) {
 
-    var wrongURL = "wrong_screen.html";
+    let wrongURL = "wrong_screen.html";
     document.getElementById(buttonId[i]).href = wrongURL;
 
   }
 
 }
 
-function setLinkToRight() {
+function setLinkToRightPage(buttonId) {
 
   let rightURl = "right_screen.html"; 
+  document.getElementById(buttonId).href = rightURl; 
 
-  for(let i = 0; i < buttonId.length; i++){
+  }
 
-    
+  function checkButtonsForRightAnswer(){
+
+    for(let i = 0; i < buttonObj.length; i++){
+
+      console.log(buttonObj[i], typeof(buttonObj[i]), cityAnswerOptn[0], typeof(cityAnswerOptn[0])); 
+
+      if(buttonObj[i].NameOfCity == cityAnswerOptn[0].name){
+
+        setLinkToRightPage(buttonObj[i].identity)
+
+      }
     }
   }
+
+  function AddToScore(){
+
+    score = score + 100
+    localStorage.setItem(UserScore, score); 
+
+  }
+ 
 
  
 
