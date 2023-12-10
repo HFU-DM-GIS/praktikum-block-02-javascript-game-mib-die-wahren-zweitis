@@ -2,7 +2,7 @@ let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
 var cityIndex = 0;
 let cityIndicies = [];
 let cityAnswerOptn = [];
-let score = localStorage.getItem(UserScore);
+//let score = localStorage.getItem(UserScore);
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
 
 const buttonA = {
