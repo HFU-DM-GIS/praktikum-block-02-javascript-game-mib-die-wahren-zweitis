@@ -200,12 +200,19 @@ function setLinkToRightPage(buttonId) {
     }
   }
 
-  function UpdateScore(){
+  function updateScore(){
 
-    score = score + 100
-    localStorage.setItem(UserScore, score); 
+    console.log("Hey");
 
   }
+
+  function clearLocalStorage(){
+
+    localStorage.clear(); 
+
+  }
+
+  document.getElementById("clearStorage").onclick = function() { clearLocalStorage()}; 
  
 
  
