@@ -4,9 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        try{
+
+        let score = localStorage.getItem("userScore");
+        console.log(score);
+        score = Number(score) + 100; 
+        localStorage.setItem("userScore", score);
+        document.getElementById("MyScore").innerText = "Your score is:" + " " + score + "!";
+
+        } catch{ 
+
+            let score = 100; 
+            localStorage.setItem("userScore", score);
+            document.getElementById("MyScore").innerText = "Your score is: " + score +"!"; 
+        } 
+    </script>
 </head>
 <body>
-    You're right! 
+    <p> You're right!  </p>
+    <p id = MyScore> </p>
 
     <a href = game.html> LINK</a>
 </body>
