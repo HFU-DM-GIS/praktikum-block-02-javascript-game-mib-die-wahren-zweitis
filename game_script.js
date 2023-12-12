@@ -130,7 +130,7 @@ shuffle(cityAnswerOptn);
 document.getElementById("RightAnswer").innerText = cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name;
 
 //Displays the correct part of the map. 
-setMapToAnswer();
+ setMapToAnswer();
 
 //Code testing / debugging. TODO: Delete later.
 console.log(cityAnswerOptn); 
@@ -138,7 +138,7 @@ console.log(cityAnswerOptn);
 checkButtonsForRightAnswer(); 
 
 //Problem? Map is displayed in local language. 
-function setMapToAnswer() {
+ function setMapToAnswer() {
 
   // show map of one of the cities
   // random choice of four cities
@@ -184,36 +184,30 @@ function setLinkToRightPage(buttonId) {
   let rightURl = "right_screen.html"; 
   document.getElementById(buttonId).href = rightURl; 
 
-  }
+}
 
-  function checkButtonsForRightAnswer(){
+function checkButtonsForRightAnswer(){
 
-    for(let i = 0; i < buttonObj.length; i++){
+  for(let i = 0; i < buttonObj.length; i++){
 
-      console.log(buttonObj[i], typeof(buttonObj[i]), cityAnswerOptn[0], typeof(cityAnswerOptn[0])); 
+    console.log(buttonObj[i], typeof(buttonObj[i]), cityAnswerOptn[0], typeof(cityAnswerOptn[0])); 
 
-      if(buttonObj[i].NameOfCity == cityAnswerOptn[0].name){
+    if(buttonObj[i].NameOfCity == cityAnswerOptn[0].name){
 
-        setLinkToRightPage(buttonObj[i].identity)
+      setLinkToRightPage(buttonObj[i].identity)
 
-      }
     }
   }
+}
 
-  function updateScore(){
+function clearLocalStorage(){
 
-    console.log("Hey");
+  localStorage.clear(); 
 
-  }
+}
 
-  function clearLocalStorage(){
+document.getElementById("clearStorage").onclick = function() { clearLocalStorage()}; 
 
-    localStorage.clear(); 
-
-  }
-
-  document.getElementById("clearStorage").onclick = function() { clearLocalStorage()}; 
- 
 
  
 
