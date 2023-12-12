@@ -29,6 +29,12 @@ h2{
     text-align: center;
 }
 
+h3{
+    font-size: 60px;
+    font-family:'Courier New', Courier, monospace;
+    text-align: center;
+}
+
 p{
     font-size: 35px;
     font-family:'Courier New', Courier, monospace;
@@ -141,6 +147,22 @@ a{
 }
 
 #AnswerD:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#Continue{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 50px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+#Continue:hover {
     background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
 }
 
