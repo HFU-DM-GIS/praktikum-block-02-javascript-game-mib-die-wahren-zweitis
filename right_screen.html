@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapMystery</title>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <header>
+        <a href="index.html">MapMystery</a>
+    </header>
+
+    <br><br><br>
+     <h3>You're right!</h3>
+    <p id = MyScore> </p>
+    <script>
+        try{
+
+        let score = localStorage.getItem("userScore");
+        console.log(score);
+        score = Number(score) + 100; 
+        localStorage.setItem("userScore", score);
+        document.getElementById("MyScore").innerText = "Your score is:" + " " + score + "!";
+
+        } catch{ 
+
+            let score = 100; 
+            localStorage.setItem("userScore", score);
+            document.getElementById("MyScore").innerText = "Your score is: " + score +"!"; 
+        } 
+    </script>
+
+    <button id="Continue"><a href = game.html> Weiter</a></button>
+</body>
+</html>
