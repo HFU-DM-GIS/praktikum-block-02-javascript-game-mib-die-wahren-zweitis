@@ -114,29 +114,6 @@ function shuffle(array) {
   return array;
 }
 
-/*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
-ziehen davon eine zahl raus und das ist die korrekte antwort*/
-initRandomCityList();
-
-displayRandomCityButton("AnswerA");
-displayRandomCityButton("AnswerB");
-displayRandomCityButton("AnswerC");
-displayRandomCityButton("AnswerD");
-
-//Shuffles the array that contains all answer options. 
-shuffle(cityAnswerOptn);
-
-//Only used for debugging. TODO: delete later.
-document.getElementById("RightAnswer").innerText = cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name;
-
-//Displays the correct part of the map. 
- setMapToAnswer();
-
-//Code testing / debugging. TODO: Delete later.
-console.log(cityAnswerOptn); 
-
-checkButtonsForRightAnswer(); 
-
 //Problem? Map is displayed in local language. 
  function setMapToAnswer() {
 
@@ -167,44 +144,50 @@ checkButtonsForRightAnswer();
 
 }
 
-//Sets all button links to wrong. Usefull to rest game.  
-function setLinksToWrongPage() {
+function checkButtonsForRightAnswer(buttonId) {
+  // Get the clicked button object based on the buttonId
+  let clickedButton = buttonObj.find(button => button.identity === buttonId);
 
-  for (let i = 0; i < buttonId.length; i++) {
+  // Get the correct answer's name
+  let correctAnswerName = cityAnswerOptn[0].name;
 
-    let wrongURL = "wrong_screen.html";
-    document.getElementById(buttonId[i]).href = wrongURL;
-
-  }
-
-}
-
-function setLinkToRightPage(buttonId) {
-
-  let rightURl = "right_screen.html"; 
-  document.getElementById(buttonId).href = rightURl; 
-
-}
-
-function checkButtonsForRightAnswer(){
-
-  for(let i = 0; i < buttonObj.length; i++){
-
-    console.log(buttonObj[i], typeof(buttonObj[i]), cityAnswerOptn[0], typeof(cityAnswerOptn[0])); 
-
-    if(buttonObj[i].NameOfCity == cityAnswerOptn[0].name){
-
-      setLinkToRightPage(buttonObj[i].identity)
-
-    }
+  // Check if the clicked button's NameOfCity is the correct answer's name
+  if (clickedButton.NameOfCity === correctAnswerName) {
+      // Redirect to right_screen.html
+      window.location.href = "right_screen.html";
+  } else {
+      // Redirect to wrong_screen.html or handle the incorrect answer logic
+      window.location.href = "wrong_screen.html";
   }
 }
 
 function clearLocalStorage(){
 
   localStorage.clear(); 
+  window.location.reload();
 
 }
+
+/*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
+ziehen davon eine zahl raus und das ist die korrekte antwort*/
+initRandomCityList();
+
+displayRandomCityButton("AnswerA");
+displayRandomCityButton("AnswerB");
+displayRandomCityButton("AnswerC");
+displayRandomCityButton("AnswerD");
+
+//Shuffles the array that contains all answer options. 
+shuffle(cityAnswerOptn);
+
+//Only used for debugging. TODO: delete later.
+console.log(cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name);
+
+//Displays the correct part of the map. 
+ setMapToAnswer();
+
+//Code testing / debugging. TODO: Delete later.
+console.log(cityAnswerOptn); 
 
 document.getElementById("clearStorage").onclick = function() { clearLocalStorage()}; 
 
@@ -212,8 +195,4 @@ document.getElementById("clearStorage").onclick = function() { clearLocalStorage
  
 
 
-/* This is pseudo-code only used to remember tasks:
-(1. Write funtion to count the score. Needs a score box as HTML first.)
-2. Button funktion einfügen bei den Antworten, sodass richtig und falsch angezeigt wird und damit man zum nächstenm level kommt
-4. städte sollen sich nicht direkt wiederholen
-*/
+

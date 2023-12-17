@@ -22,19 +22,30 @@
     <br><br><br>
 
 <div> 
-    <button> <a href = wrong_screen.html id="AnswerA"> Antwort A: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerB"> Antwort B: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerC"> Antwort C: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerD"> Antwort D: </a> </button>
+    <button id="AnswerA" onclick="checkButtonsForRightAnswer('AnswerA')">Answer A</button>
+    <button id="AnswerB" onclick="checkButtonsForRightAnswer('AnswerB')">Answer B</button>
+    <button id="AnswerC" onclick="checkButtonsForRightAnswer('AnswerC')">Answer C</button>
+    <button id="AnswerD" onclick="checkButtonsForRightAnswer('AnswerD')">Answer D</button>
+
 
     <!---->
-    <p id = RightAnswer> null</p>
+    <p id = displayScore> </p>
+    <script>
+        try {
+            let score = localStorage.getItem("userScore");
+    
+            // Check if score is null, and set it to 0 if it is
+            score = score !== null ? score : 0;
+    
+            document.getElementById("displayScore").innerText = "Aktuelle Punkte: " + score; 
+        } catch (error) {
+            console.log("Error retrieving user score:", error);
+        }
+    </script>
+    
 </div>
 
-<button id = clearStorage> Clear local Storage. </button>
-
-
-
+<button id = clearStorage> Punktestand löschen. </button>
 
 </body>
 </html>

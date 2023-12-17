@@ -12,8 +12,24 @@
     </header>
 
     <br><br><br>
-     <h3>You're wrong!</h3>
+     <h3>Leider falsch!</h3>
     <p id = MyScore> </p>
+    <script>
+        try{
+
+        let score = localStorage.getItem("userScore");
+        console.log(score);
+        score = Number(score) - 50; 
+        localStorage.setItem("userScore", score);
+        document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: "+ score + "!";
+
+        } catch{ 
+
+            let score = 0; 
+            localStorage.setItem("userScore", score);
+            document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: " + score +"!"; 
+        } 
+    </script>
 
     <button id="Continue"><a href = game.html> Weiter</a></button>
 </body>
