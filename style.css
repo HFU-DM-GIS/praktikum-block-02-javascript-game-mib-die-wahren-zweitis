@@ -77,6 +77,7 @@ a{
     margin-left: 80px;
     margin-top: 70px;
     margin-bottom: -90px;
+    align-self: auto;
 }
 
 #backButton:hover {
