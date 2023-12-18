@@ -1,12 +1,12 @@
 header{
     background-color: white;
-    font-size: 130px;
+    font-size: 100px;
     color: black;
     font-family:'Courier New', Courier, monospace;
     font-weight: bold;
     text-align: center;
-    margin-top: 20px;
-    border-bottom: 20px;;
+    margin-top: 15px;
+    border-bottom: 15px;
     border-style: solid;
     border-color: rgb(189, 188, 188);
 }
@@ -50,7 +50,7 @@ a{
 #startButton{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 50px; 
+    font-size: 30px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
