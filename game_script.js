@@ -1,81 +1,82 @@
 let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
 var cityIndex = 0;
-let cityIndicies = [];
-let cityAnswerOptn = [];
+let cityIndicies = []; // Mehrzahl von Index ist Indices
+let cityAnswerOptn = []; // Option ist nicht so lang, Optn könnte auch für Optimization stehen
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
 
 const buttonA = {
 
-  identity : "AnswerA",
+  identity: "AnswerA",
 
-  NameOfCity : "None",
+  NameOfCity: "None",
 
-  longitude : 0,
+  longitude: 0,
 
-  latitude : 0, 
+  latitude: 0,
 
 };
 
 const buttonB = {
 
-  identity : "AnswerB",
+  identity: "AnswerB",
 
-  NameOfCity : "None",
+  NameOfCity: "None",
 
-  longitude : 0,
+  longitude: 0,
 
-  latitude : 0, 
+  latitude: 0,
 
 };
 
 const buttonC = {
 
-  identity : "AnswerC",
+  identity: "AnswerC",
 
-  NameOfCity : "None",
+  NameOfCity: "None",
 
-  longitude : 0,
+  longitude: 0,
 
-  latitude : 0, 
+  latitude: 0,
 
 };
 
 const buttonD = {
 
-  identity : "AnswerD",
+  identity: "AnswerD",
 
-  NameOfCity : "None",
+  NameOfCity: "None",
 
-  longitude : 0,
+  longitude: 0,
 
-  latitude : 0, 
+  latitude: 0,
 
 };
 
-let buttonObj =[buttonA, buttonB, buttonC, buttonD]; 
+let buttonObj = [buttonA, buttonB, buttonC, buttonD];
 
 //Code testing / debugging. TODO: Delete later. 
-console.log(buttonA.identity, typeof(buttonA.identity));
+console.log(buttonA.identity, typeof (buttonA.identity));
 
 
 function getRandomCityName(buttonId) {
+  // hier passt der Name nicht so ganz... der Prefix get impliziert, dass etwas zurück gegeben wird und sonst nichts passiert (getter+setter, https://de.wikipedia.org/wiki/Zugriffsfunktion)... in eurem Fall werden aber einige globale Variablen verändert. Dadurch bewirkt der mehrfache Aufruf dieser Funktion immer etwas anderes.
 
   let randomCity = cities[cityIndicies[cityIndex]];
   cityIndex++;
 
   cityAnswerOptn.push(randomCity);
 
-  for(let i = 0; i < buttonObj.length; i ++){
+  for (let i = 0; i < buttonObj.length; i++) {
 
-    if(buttonId == buttonObj[i].identity){
+    if (buttonId == buttonObj[i].identity) {
 
       buttonObj[i].NameOfCity = randomCity.name;
       buttonObj[i].latitude = randomCity.lat;
-      buttonObj[i].longitude = randomCity.lng;  
+      buttonObj[i].longitude = randomCity.lng;
 
     }
   }
-  console.log(buttonObj); 
+  console.log(buttonObj);
 
   return randomCity.name;
 }
@@ -115,7 +116,7 @@ function shuffle(array) {
 }
 
 //Problem? Map is displayed in local language. 
- function setMapToAnswer() {
+function setMapToAnswer() {
 
   // show map of one of the cities
   // random choice of four cities
@@ -128,7 +129,7 @@ function shuffle(array) {
   //let lonOfCity = cities[0].lng;
   //let latOfCity = cities[0].lat;
 
-  let mapSizeInGPS = 0.001;
+  let mapSizeInGPS = 0.001; // nicht ganz präzise, da es die halbe Kartengröße ist
   let minLon = lonOfCity - mapSizeInGPS;
   let maxLon = lonOfCity + mapSizeInGPS;
   let minLat = latOfCity - mapSizeInGPS;
@@ -153,25 +154,27 @@ function checkButtonsForRightAnswer(buttonId) {
 
   // Check if the clicked button's NameOfCity is the correct answer's name
   if (clickedButton.NameOfCity === correctAnswerName) {
-      // Redirect to right_screen.html
-      window.location.href = "right_screen.html";
+    // Redirect to right_screen.html
+    window.location.href = "right_screen.html";
   } else {
-      // Redirect to wrong_screen.html or handle the incorrect answer logic
-      window.location.href = "wrong_screen.html";
+    // Redirect to wrong_screen.html or handle the incorrect answer logic
+    window.location.href = "wrong_screen.html";
   }
 }
 
-function clearLocalStorage(){
+function clearLocalStorage() {
 
-  localStorage.clear(); 
+  localStorage.clear();
   window.location.reload();
 
 }
 
 /*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
 ziehen davon eine zahl raus und das ist die korrekte antwort*/
-initRandomCityList();
+// Kommentare auf Englisch und Rechtschreibung beachten
+initRandomCityList(); // präziser wäre initRandomCityIndexList...
 
+// hier besser dafür sorgen, dass die Buttons in einer Funktion initialisiert werden, im Idealfall eine Schleife von 1 bis numAnswers.
 displayRandomCityButton("AnswerA");
 displayRandomCityButton("AnswerB");
 displayRandomCityButton("AnswerC");
@@ -184,15 +187,15 @@ shuffle(cityAnswerOptn);
 console.log(cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name);
 
 //Displays the correct part of the map. 
- setMapToAnswer();
+setMapToAnswer();
 
 //Code testing / debugging. TODO: Delete later.
-console.log(cityAnswerOptn); 
+console.log(cityAnswerOptn);
 
-document.getElementById("clearStorage").onclick = function() { clearLocalStorage()}; 
+document.getElementById("clearStorage").onclick = function () { clearLocalStorage() };
 
 
- 
+
 
 
 
