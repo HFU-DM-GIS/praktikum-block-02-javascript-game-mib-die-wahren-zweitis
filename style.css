@@ -74,9 +74,16 @@ a{
     border-radius: 10px; 
     cursor: pointer;
     display: block;
+<<<<<<< HEAD
     margin-left: 30px;
     margin-top: 10px;
     margin-bottom: 0px;
+=======
+    margin-left: 80px;
+    margin-top: 70px;
+    margin-bottom: -90px;
+    align-self: auto;
+>>>>>>> e960a1a813c28b5e06e5471684ed5e6c90727f46
 }
 
 #backButton:hover {

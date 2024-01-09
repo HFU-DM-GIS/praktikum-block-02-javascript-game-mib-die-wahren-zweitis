@@ -13,7 +13,7 @@
     </header>
 
     <br><br><br>
-     <h3>You're right!</h3>
+     <h3>Richtig!</h3>
     <p id = MyScore> </p>
     <script>
         try{
@@ -22,13 +22,13 @@
         console.log(score);
         score = Number(score) + 100; 
         localStorage.setItem("userScore", score);
-        document.getElementById("MyScore").innerText = "Your score is:" + " " + score + "!";
+        document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: " + score + "!";
 
         } catch{ 
 
             let score = 100; 
             localStorage.setItem("userScore", score);
-            document.getElementById("MyScore").innerText = "Your score is: " + score +"!"; 
+            document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: " + score +"!"; 
         } 
     </script>
 

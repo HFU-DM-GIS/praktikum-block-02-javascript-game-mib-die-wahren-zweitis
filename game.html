@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapMystery</title>
-    <link rel="stylesheet" href="style.css"/>
-    <script src="testcities.js" defer></script>
-    <script src="game_script.js" defer></script>
-</head>
-<body>
-    <header>
-        <a href="index.html">MapMystery</a>
-    </header>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MapMystery</title>
+        <link rel="stylesheet" href="style.css" />
+        <script src="testcities.js" defer></script>
+        <script src="game_script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            <a href="index.html">MapMystery</a>
+        </header>
 
-    <button id="backButton"><a href=index.html>ZURÜCK</a></button> 
+        <button id="backButton"><a href=index.html>ZURÜCK</a></button>
+
+        <h2>Erkenne um welche Stadt es sich handelt.</h2>
+        <br>
+
+        <div> <iframe id="GameMap" width="925" height="450" scrollwheel="false"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
+                style="border: 1px solid black; pointer-events: none;"></iframe><br /></div>
+        <br><br><br>
+
+        <div>
+            <button id="AnswerA" onclick="checkButtonsForRightAnswer('AnswerA')">Answer
+                A</button>
+            <button id="AnswerB" onclick="checkButtonsForRightAnswer('AnswerB')">Answer
+                B</button>
+            <button id="AnswerC" onclick="checkButtonsForRightAnswer('AnswerC')">Answer
+                C</button>
+            <button id="AnswerD" onclick="checkButtonsForRightAnswer('AnswerD')">Answer
+                D</button>
+
+            <!---->
+            <p id=displayScore> </p>
+            <script>
+        try {
+            let score = localStorage.getItem("userScore");
     
-    <h2>Erkenne um welche Stadt es sich handelt</h2>
-    <br>
+            // Check if score is null, and set it to 0 if it is
+            score = score !== null ? score : 0;
     
+<<<<<<< HEAD
     <div> <iframe id="GameMap" width="825" height="350" scrollwheel = "false" src="https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik" style="border: 1px solid black; pointer-events: none;"></iframe><br/></div>
     <br><br><br>
+=======
+            document.getElementById("displayScore").innerText = "Aktuelle Punkte: " + score; 
+        } catch (error) {
+            console.log("Error retrieving user score:", error);
+        }
+    </script>
+>>>>>>> e960a1a813c28b5e06e5471684ed5e6c90727f46
 
-<div> 
-    <button> <a href = wrong_screen.html id="AnswerA"> Antwort A: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerB"> Antwort B: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerC"> Antwort C: </a> </button>
-    <button> <a href = wrong_screen.html id="AnswerD"> Antwort D: </a> </button>
+        </div>
 
-    <!---->
-    <p id = RightAnswer> null</p>
-</div>
+        <button id=clearStorage> Punktestand löschen. </button>
 
-<button id = clearStorage> Clear local Storage. </button>
-
-
-
-
-</body>
+    </body>
 </html>
