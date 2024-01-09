@@ -3,7 +3,7 @@ var cityIndex = 0;
 let cityIndicies = []; // Mehrzahl von Index ist Indices
 let cityAnswerOptn = []; // Option ist nicht so lang, Optn könnte auch für Optimization stehen
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
-
+let GameTimeInSeconds; 
 const buttonA = {
 
   identity: "AnswerA",
@@ -169,6 +169,42 @@ function clearLocalStorage() {
 
 }
 
+//following a tutorial from https://www.freecodecamp.org/news/how-to-create-a-countdown-timer/
+function startCountdownTillGameOver(GameTimeInSeconds) {
+  let counter; 
+
+  if(GameTimeInSeconds) {
+     counter = GameTimeInSeconds;
+
+  } else {
+    counter = 60; 
+
+  }
+
+  const interval = setInterval(() => {
+    document.getElementById("CountDown").innerText = "Verbleibende Zeit: " + counter; 
+    counter--; 
+
+    if(counter < 0) {
+      clearInterval(interval); 
+      window.location.href = "timeOver_screen.html"; 
+  
+    }
+
+  }, 1000); 
+}
+
+function changeGameSettings() { 
+
+  let newGameTime; 
+  let newMapSectionSize; 
+  let newMapOffsetNorthOrSouth;
+  let newMapOffsetWestOrEast; 
+
+  document.getElementById()
+  
+
+}
 /*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
 ziehen davon eine zahl raus und das ist die korrekte antwort*/
 // Kommentare auf Englisch und Rechtschreibung beachten
@@ -193,6 +229,8 @@ setMapToAnswer();
 console.log(cityAnswerOptn);
 
 document.getElementById("clearStorage").onclick = function () { clearLocalStorage() };
+
+startCountdownTillGameOver();
 
 
 
