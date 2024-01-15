@@ -1,9 +1,12 @@
 let buttonId = ["AnswerA", "AnswerB", "AnswerC", "AnswerD"];
 var cityIndex = 0;
-let cityIndicies = []; // Mehrzahl von Index ist Indices
-let cityAnswerOptn = []; // Option ist nicht so lang, Optn könnte auch für Optimization stehen
+let cityIndices = []; 
+let cityAnswerOptions = []; 
 let url = "https://www.openstreetmap.org/export/embed.html?bbox=-10.612792968750002%2C44.69989765840321%2C26.03759765625%2C57.124314084296216&amp;layer=mapnik"
-let GameTimeInSeconds; 
+let gameTimeInSeconds; 
+let addendThatDictatesMapSector; 
+let northSouthAdjustment;
+let eastWestAdjustment; 
 const buttonA = {
 
   identity: "AnswerA",
@@ -61,10 +64,10 @@ console.log(buttonA.identity, typeof (buttonA.identity));
 function getRandomCityName(buttonId) {
   // hier passt der Name nicht so ganz... der Prefix get impliziert, dass etwas zurück gegeben wird und sonst nichts passiert (getter+setter, https://de.wikipedia.org/wiki/Zugriffsfunktion)... in eurem Fall werden aber einige globale Variablen verändert. Dadurch bewirkt der mehrfache Aufruf dieser Funktion immer etwas anderes.
 
-  let randomCity = cities[cityIndicies[cityIndex]];
+  let randomCity = cities[cityIndices[cityIndex]];
   cityIndex++;
 
-  cityAnswerOptn.push(randomCity);
+  cityAnswerOptions.push(randomCity);
 
   for (let i = 0; i < buttonObj.length; i++) {
 
@@ -92,9 +95,9 @@ function initRandomCityList() {
   //Get number of cities in list
   let numCitys = cities.length;
   //Generate array of city indices
-  cityIndicies = Array.from(Array(numCitys).keys());
+  cityIndices = Array.from(Array(numCitys).keys());
   //Shuffle indicies 
-  shuffle(cityIndicies);
+  shuffle(cityIndices);
 
 }
 //Copied from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -122,18 +125,28 @@ function setMapToAnswer() {
   // random choice of four cities
   let correctCityIndex = 0;
   // get coordinates (bbox) of this city
-  let lonOfCity = Number(cityAnswerOptn[correctCityIndex].lng);
-  let latOfCity = Number(cityAnswerOptn[correctCityIndex].lat);
+  let lonOfCity = Number(cityAnswerOptions[correctCityIndex].lng);
+  let latOfCity = Number(cityAnswerOptions[correctCityIndex].lat);
 
   console.log(lonOfCity, latOfCity);
   //let lonOfCity = cities[0].lng;
   //let latOfCity = cities[0].lat;
+  if(!addendThatDictatesMapSector) {
+    addendThatDictatesMapSector = 0.001;
+  }
 
-  let mapSizeInGPS = 0.001; // nicht ganz präzise, da es die halbe Kartengröße ist
-  let minLon = lonOfCity - mapSizeInGPS;
-  let maxLon = lonOfCity + mapSizeInGPS;
-  let minLat = latOfCity - mapSizeInGPS;
-  let maxLat = latOfCity + mapSizeInGPS;
+  if(!eastWestAdjustment) { 
+    eastWestAdjustment = 0; 
+  }
+
+  if(!northSouthAdjustment) {
+    northSouthAdjustment = 0; 
+  }
+
+  let minLon = lonOfCity - addendThatDictatesMapSector + eastWestAdjustment;
+  let maxLon = lonOfCity + addendThatDictatesMapSector + eastWestAdjustment;
+  let minLat = latOfCity - addendThatDictatesMapSector + northSouthAdjustment;
+  let maxLat = latOfCity + addendThatDictatesMapSector + northSouthAdjustment;
 
   let bbox = [minLon, minLat, maxLon, maxLat];
   console.log(bbox)
@@ -150,7 +163,7 @@ function checkButtonsForRightAnswer(buttonId) {
   let clickedButton = buttonObj.find(button => button.identity === buttonId);
 
   // Get the correct answer's name
-  let correctAnswerName = cityAnswerOptn[0].name;
+  let correctAnswerName = cityAnswerOptions[0].name;
 
   // Check if the clicked button's NameOfCity is the correct answer's name
   if (clickedButton.NameOfCity === correctAnswerName) {
@@ -165,20 +178,17 @@ function checkButtonsForRightAnswer(buttonId) {
 function clearLocalStorage() {
 
   localStorage.clear();
-  window.location.reload();
 
 }
 
 //following a tutorial from https://www.freecodecamp.org/news/how-to-create-a-countdown-timer/
-function startCountdownTillGameOver(GameTimeInSeconds) {
+function startCountdownTillGameOver() {
   let counter; 
 
-  if(GameTimeInSeconds) {
-     counter = GameTimeInSeconds;
-
+  if(gameTimeInSeconds) {
+     counter = gameTimeInSeconds;
   } else {
     counter = 60; 
-
   }
 
   const interval = setInterval(() => {
@@ -194,20 +204,115 @@ function startCountdownTillGameOver(GameTimeInSeconds) {
   }, 1000); 
 }
 
-function changeGameSettings() { 
+function saveGameSettings() { 
 
   let newGameTime; 
   let newMapSectionSize; 
   let newMapOffsetNorthOrSouth;
-  let newMapOffsetWestOrEast; 
+  let newMapOffsetEastOrWest; 
 
-  document.getElementById()
+  let timeSeletor = document.getElementById("timeInputByUser"); 
+  newGameTime = timeSeletor.value; 
+   
+
+  let mapSelctor = document.getElementById("mapSectorInputByUser"); 
+  newMapSectionSize = mapSelctor.value; 
   
 
+  let northOrSouthValueSelector = document.getElementById("southNorthAdjustmentInputByUser");
+  newMapOffsetNorthOrSouth = northOrSouthValueSelector.value; 
+   
+  
+  let eastOrWestValueSelector = document.getElementById("eastWestAdjustmentInputByUser"); 
+  newMapOffsetEastOrWest = eastOrWestValueSelector.value; 
+
+  localStorage.setItem("userSettingTime", newGameTime);
+  localStorage.setItem("userSettingMapSection", newMapSectionSize);
+  localStorage.setItem("userSettingNorthSouthOffset", newMapOffsetNorthOrSouth);
+  localStorage.setItem("userSettingEastWestOffset", newMapOffsetEastOrWest); 
+   
 }
-/*wir nehmen die ausgewählten indicies und stecken diese in einem tempöreren Array rein und 
-ziehen davon eine zahl raus und das ist die korrekte antwort*/
-// Kommentare auf Englisch und Rechtschreibung beachten
+
+function updateGameSettings() {
+
+  try { 
+    let getTime = localStorage.getItem("userSettingTime");
+    gameTimeInSeconds = Number(getTime);  
+  } catch {
+    console.log("No time setting found."); 
+  }
+
+  try {
+    let getMapSection = localStorage.getItem("userSettingMapSection"); 
+    addendThatDictatesMapSector = Number(getMapSection); 
+  } catch {
+    console.log("No map section setting found.")
+  }
+
+  try { 
+    let getNorthSouthOffset = localStorage.getItem("userSettingNorthSouthOffset");
+    northSouthAdjustment = Number(getNorthSouthOffset); 
+  } catch {
+    console.log("No north or south adjustment found."); 
+  }
+
+  try {
+    let getEastWestOffset = localStorage.getItem("userSettingEastWestOffset");
+    eastWestAdjustment = Number(getEastWestOffset); 
+  } catch {
+    console.log("No east or west adjustment found."); 
+  }
+}
+
+function setDefaultDropdownValues() {
+
+  if (localStorage.getItem('userSettingTime')) {
+
+    document.getElementById('timeInputByUser').value = localStorage.getItem('userSettingTime');
+  }
+
+  if (localStorage.getItem('userSettingMapSection')) {
+
+    document.getElementById('mapSectorInputByUser').value = localStorage.getItem('userSettingMapSection');
+  }
+
+  if (localStorage.getItem('userSettingNorthSouthOffset')) {
+
+    document.getElementById('southNorthAdjustmentInputByUser').value = localStorage.getItem('userSettingNorthSouthOffset');
+  }
+
+  if (localStorage.getItem('userSettingEastWestOffset')) {
+
+    document.getElementById('eastWestAdjustmentInputByUser').value = localStorage.getItem('userSettingEastWestOffset');
+  }
+}
+
+class leaderboardScore {
+  constructor(name, score) {
+    this.name = name;
+    this.score = score;
+  }
+}
+
+function getScoreboardFromLocalStorage() {
+  let scoreboardJSON = localStorage.getItem('scoreboard');
+  return scoreboardJSON ? JSON.parse(scoreboardJSON) : [];
+}
+
+function updateScoreboard(newScore) {
+  let scoreboard = getScoreboardFromLocalStorage();
+
+  scoreboard.push(newScore);
+
+  scoreboard.sort((a, b) => b.score - a.score);
+
+  let topTenScores = scoreboard.slice(0, 10);
+
+  localStorage.setItem('scoreboard', JSON.stringify(topTenScores));
+}
+
+
+updateGameSettings(); 
 initRandomCityList(); // präziser wäre initRandomCityIndexList...
 
 // hier besser dafür sorgen, dass die Buttons in einer Funktion initialisiert werden, im Idealfall eine Schleife von 1 bis numAnswers.
@@ -217,19 +322,14 @@ displayRandomCityButton("AnswerC");
 displayRandomCityButton("AnswerD");
 
 //Shuffles the array that contains all answer options. 
-shuffle(cityAnswerOptn);
+shuffle(cityAnswerOptions);
 
 //Only used for debugging. TODO: delete later.
-console.log(cityAnswerOptn[0].lng + " " + cityAnswerOptn[0].lat + " " + cityAnswerOptn[0].name);
+console.log(cityAnswerOptions[0].lng + " " + cityAnswerOptions[0].lat + " " + cityAnswerOptions[0].name);
 
 //Displays the correct part of the map. 
 setMapToAnswer();
-
-//Code testing / debugging. TODO: Delete later.
-console.log(cityAnswerOptn);
-
-document.getElementById("clearStorage").onclick = function () { clearLocalStorage() };
-
+ 
 startCountdownTillGameOver();
 
 

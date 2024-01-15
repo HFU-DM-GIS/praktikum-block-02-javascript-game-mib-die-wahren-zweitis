@@ -19,7 +19,7 @@
 
         let score = localStorage.getItem("userScore");
         console.log(score);
-        score = Number(score); 
+        score = Number(score) - 100; 
         localStorage.setItem("userScore", score);
         document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: "+ score + "!";
 

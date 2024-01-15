@@ -13,5 +13,5 @@ Remarks and open issues by UH 2024-01-04:
   - ${url} for example and script.js - done
 - Change the "Punktestand löschen." button so that it fits the look&feel of the game. Allow players to save their results and enter a name when e.g. 10 cities are played.
 - Add a timer, so that there is some pressure to answer in time. - done
-- Include several levels of difficulties by changing the map size (your mapSizeInGPS variable) or the popularity of cities (use different lists) or an offset of the map position (so that not always the city center is shown). 
+- Include several levels of difficulties by changing the map size (your mapSizeInGPS variable) or the popularity of cities (use different lists) or an offset of the map position (so that not always the city center is shown) done. 
 - Display a leaderboard

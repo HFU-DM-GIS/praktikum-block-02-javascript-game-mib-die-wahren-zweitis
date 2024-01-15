@@ -4,34 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="game_script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setDefaultDropdownValues();
+        });
+    </script>
 </head>
 <body>
     <label for="time">Zeit</label> 
-    <select name="time" id="time"> 
+    <select name="time" id="timeInputByUser"> 
         <option value="45">45sec</option> 
         <option value="30">30sec</option> 
         <option value="15">15sec</option> 
     </select>  
 
     <label for="map">Kartenausschnitt</label> 
-    <select name="map" id="map"> 
-        <option value="0.003">0.003</option> 
-        <option value="0.002">0.002</option> 
-        <option value="0.001">0.001</option> 
+    <select name="map" id="mapSectorInputByUser"> 
+        <option value="0.003">Groß</option> 
+        <option value="0.002">Mittel</option> 
+        <option value="0.001">Klein</option> 
     </select>  
 
     <label for="east-west">Ost-West Verschiebung</label> 
-    <select name="east-west" id="east-west"> 
-        <option value="leicht">Leicht</option> 
-        <option value="mittel">Mittel</option> 
-        <option value="schwer">Schwer</option> 
+    <select name="east-west" id="eastWestAdjustmentInputByUser"> 
+        <option value="0.000">Keine</option>
+        <option value="0.001">Leicht nach Osten.</option> 
+        <option value="0.002">Mittelstark nach Osten.</option> 
+        <option value="0.003">Stark nach Osten.</option>
+        <option value="-0.001">Leicht nach Westen.</option> 
+        <option value="-0.002">Mittelstark nach Westen.</option> 
+        <option value="-0.003">Stark nach Westen</option>
+         
     </select>  
 
     <label for="south-north">Nord-Süd Verschiebung</label> 
-    <select name="south-north" id="south-north"> 
-        <option value="leicht">Leicht</option> 
-        <option value="mittel">Mittel</option> 
-        <option value="schwer">Schwer</option> 
+    <select name="south-north" id="southNorthAdjustmentInputByUser"> 
+        <option value="0.000">Keine</option>
+        <option value="0.001">Leicht nach Norden.</option> 
+        <option value="0.002">Mittelstark nach Norden.</option> 
+        <option value="0.003">Stark nach Norden</option>
+        <option value="-0.001">Leicht nach Süden.</option> 
+        <option value="-0.002">Mittelstark nach Süden.</option> 
+        <option value="-0.003">Stark nach Süden.</option> 
     </select>  
+    <button id=clearStorage onclick="clearLocalStorage()"> Punktestand löschen. </button>
+    <button id=saveNewSettings onclick="saveGameSettings()"> Änderungen speichern.</button>
+    <button><a href=index.html>Startseite</a></button>
+    <button><a href=game.html>Spiel starten</a></button>
+    
 </body>
 </html>
