@@ -13,7 +13,7 @@
             <a href="index.html">MapMystery</a>
         </header>
 
-        <button id="backButton"><a href=index.html>ZURÜCK</a></button>
+        <button id="backButton"><a href=options.html>ZURÜCK</a></button>
 
         <h2>Erkenne um welche Stadt es sich handelt.</h2>
         
@@ -35,7 +35,9 @@
 
             
             <p id=displayScore> </p>
-            <script>
+            <p id = CountDown> Verbleibende Zeit: </p>
+
+    <script>
         try {
             let score = localStorage.getItem("userScore");
     
@@ -45,8 +47,11 @@
         } catch (error) {
             console.log("Error retrieving user score:", error);
         }
+
+        
     </script>
-    <p id = CountDown> Verbleibende Zeit: </p>
+
+    
 
         </div>
     </body>

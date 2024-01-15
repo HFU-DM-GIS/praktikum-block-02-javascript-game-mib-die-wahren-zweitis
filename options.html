@@ -13,46 +13,65 @@
     </script>
 </head>
 <body>
-    <label for="time">Zeit</label> 
-    <select name="time" id="timeInputByUser"> 
-        <option value="45">45sec</option> 
-        <option value="30">30sec</option> 
-        <option value="15">15sec</option> 
-    </select>  
+    <header>
+        <a href="index.html">MapMystery</a>
+    </header>
+    
+    <button id="backButton"><a href=index.html>ZURÜCK</a></button>
 
-    <label for="map">Kartenausschnitt</label> 
-    <select name="map" id="mapSectorInputByUser"> 
-        <option value="0.003">Groß</option> 
-        <option value="0.002">Mittel</option> 
-        <option value="0.001">Klein</option> 
-    </select>  
+    <h2>Optionen</h2>
 
-    <label for="east-west">Ost-West Verschiebung</label> 
-    <select name="east-west" id="eastWestAdjustmentInputByUser"> 
-        <option value="0.000">Keine</option>
-        <option value="0.001">Leicht nach Osten.</option> 
-        <option value="0.002">Mittelstark nach Osten.</option> 
-        <option value="0.003">Stark nach Osten.</option>
-        <option value="-0.001">Leicht nach Westen.</option> 
-        <option value="-0.002">Mittelstark nach Westen.</option> 
-        <option value="-0.003">Stark nach Westen</option>
-         
-    </select>  
+    <p>
+        <label for="time">Zeit</label> 
+        <select name="time" id="timeInputByUser"> 
+            <option value="45">45sec</option> 
+            <option value="30">30sec</option> 
+            <option value="15">15sec</option> 
+        
+        </select>  
+    </p>
 
-    <label for="south-north">Nord-Süd Verschiebung</label> 
-    <select name="south-north" id="southNorthAdjustmentInputByUser"> 
-        <option value="0.000">Keine</option>
-        <option value="0.001">Leicht nach Norden.</option> 
-        <option value="0.002">Mittelstark nach Norden.</option> 
-        <option value="0.003">Stark nach Norden</option>
-        <option value="-0.001">Leicht nach Süden.</option> 
-        <option value="-0.002">Mittelstark nach Süden.</option> 
-        <option value="-0.003">Stark nach Süden.</option> 
-    </select>  
-    <button id=clearStorage onclick="clearLocalStorage()"> Punktestand löschen. </button>
-    <button id=saveNewSettings onclick="saveGameSettings()"> Änderungen speichern.</button>
-    <button><a href=index.html>Startseite</a></button>
-    <button><a href=game.html>Spiel starten</a></button>
+    <p>
+        <label for="map">Kartenausschnitt</label> 
+        <select name="map" id="mapSectorInputByUser"> 
+            <option value="0.003">Groß</option> 
+            <option value="0.002">Mittel</option> 
+            <option value="0.001">Klein</option> 
+        </select>  
+    </p>
+
+    <p>
+        <label for="east-west">Ost-West Verschiebung</label> 
+        <select name="east-west" id="eastWestAdjustmentInputByUser"> 
+            <option value="0.000">Keine</option>
+            <option value="0.001">Leicht nach Osten</option> 
+            <option value="0.002">Mittelstark nach Osten</option> 
+            <option value="0.003">Stark nach Osten</option>
+            <option value="-0.001">Leicht nach Westen</option> 
+            <option value="-0.002">Mittelstark nach Westen</option> 
+            <option value="-0.003">Stark nach Westen</option>
+        </select> 
+    </p>
+
+    <p>
+        <label for="south-north">Nord-Süd Verschiebung</label> 
+        <select name="south-north" id="southNorthAdjustmentInputByUser"> 
+            <option value="0.000">Keine</option>
+            <option value="0.001">Leicht nach Norden.</option> 
+            <option value="0.002">Mittelstark nach Norden.</option> 
+            <option value="0.003">Stark nach Norden</option>
+            <option value="-0.001">Leicht nach Süden.</option> 
+            <option value="-0.002">Mittelstark nach Süden.</option> 
+            <option value="-0.003">Stark nach Süden.</option> 
+        </select>  
+    </p>
+
+    <p></p>
+
+    <button id=clearStorage onclick="clearLocalStorage()"> Punktestand löschen </button>
+    <button id=saveNewSettings onclick="saveGameSettings()"> Änderungen speichern</button>
+    <button id =startButton2><a href=game.html>Spiel starten</a></button>
+
     
 </body>
 </html>

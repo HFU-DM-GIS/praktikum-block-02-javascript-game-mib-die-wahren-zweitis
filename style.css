@@ -9,6 +9,7 @@ header{
     border-bottom: 15px;
     border-style: solid;
     border-color: rgb(189, 188, 188);
+    margin-bottom: 100px;
 }
 
 body{
@@ -21,16 +22,11 @@ h1{
     font-family:'Courier New', Courier, monospace;
     text-align: center;
     margin-top: -20px;
+    margin-bottom: 30px;
 }
 
 h2{
     font-size: 50px;
-    font-family:'Courier New', Courier, monospace;
-    text-align: center;
-}
-
-h3{
-    font-size: 60px;
     font-family:'Courier New', Courier, monospace;
     text-align: center;
 }
@@ -47,21 +43,137 @@ a{
     color: black;
 }
 
+
 #startButton{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 30px; 
+    font-size: 40px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
     border-color: black;
     border-radius: 10px; 
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 #startButton:hover {
     background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
 }
+
+#optionButton{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 18px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+#optionButton:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#leaderButton{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 18px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+#leaderButton:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+
+label{
+    font-size: 33px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+}
+
+select{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 20px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: -50px;
+    align-items: center;
+}
+
+#clearStorage{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 18px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+
+#clearStorage:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#saveNewSettings{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 18px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 40px;
+}
+
+#saveNewSettings:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+#startButton2{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 25px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px; 
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 40px;
+}
+
+#startButton2:hover {
+    background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
 
 #backButton{
     background-color:rgb(189, 188, 188); 
@@ -75,9 +187,11 @@ a{
     cursor: pointer;
     display: block;
     margin-left: 30px;
-    margin-top: 10px;
+    margin-top: -60px;
     margin-bottom: -50px;
 }
+
+
 
 #backButton:hover {
     background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
@@ -153,7 +267,7 @@ a{
 #Continue{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 50px; 
+    font-size: 40px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
@@ -164,6 +278,19 @@ a{
 
 #Continue:hover {
     background-color: white; /*Farbe des Buttons ändert sich, wenn cursor drauf schwebt*/
+}
+
+table{
+    background-color:rgb(189, 188, 188); 
+    padding: 10px 20px; /* Innenabstand */
+    font-size: 25px; 
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    border: solid; 
+    border-color: black;
+    border-radius: 10px;
+    
+    margin-top: 40px;
 }
 
 
