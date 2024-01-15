@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MapMystery</title>
     <link rel="stylesheet" href="style.css"/>
+    <script src="game_script.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateLocalStorageWithGameStats(-100);
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -12,25 +18,8 @@
     </header>
 
     <br><br><br>
-     <h3>Die zeit ist abgelaufen</h3>
+     <h3>Die Zeit ist abgelaufen</h3>
     <p id = MyScore> </p>
-    <script>
-        try{
-
-        let score = localStorage.getItem("userScore");
-        console.log(score);
-        score = Number(score) - 100; 
-        localStorage.setItem("userScore", score);
-        document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: "+ score + "!";
-
-        } catch{ 
-
-            let score = 0; 
-            localStorage.setItem("userScore", score);
-            document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: " + score +"!"; 
-        } 
-    </script>
-
     <button id="Continue"><a href = game.html> Weiter</a></button>
 </body>
 </html>

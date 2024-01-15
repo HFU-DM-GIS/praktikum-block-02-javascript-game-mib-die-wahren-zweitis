@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapMystery</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css"/>
     <script src="game_script.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            updateLocalStorageWithGameStats(100);
+            buildLeaderboardTable();
         });
     </script>
 </head>
 <body>
-    <header>
-        <a href="index.html">MapMystery</a>
-    </header>
-
-    <br><br><br>
-     <h3>Richtig!</h3>
-    <p id = MyScore> </p>
-
-    <button id="Continue"><a href = game.html> Weiter</a></button>
+    <div id="leaderboard">
+    </div>
+    <div id="buttonDiv">
+        <button id="backButton"><a href=index.html>ZURÜCK</a></button>
+    </div>
+    
 </body>
 </html>

@@ -264,26 +264,26 @@ function updateGameSettings() {
   }
 }
 
-function setDefaultDropdownValues() {
+function setSeenDropdownValues() {
 
-  if (localStorage.getItem('userSettingTime')) {
+  if (localStorage.getItem("userSettingTime")) {
 
-    document.getElementById('timeInputByUser').value = localStorage.getItem('userSettingTime');
+    document.getElementById("timeInputByUser").value = localStorage.getItem("userSettingTime");
   }
 
-  if (localStorage.getItem('userSettingMapSection')) {
+  if (localStorage.getItem("userSettingMapSection")) {
 
-    document.getElementById('mapSectorInputByUser').value = localStorage.getItem('userSettingMapSection');
+    document.getElementById("mapSectorInputByUser").value = localStorage.getItem("userSettingMapSection");
   }
 
-  if (localStorage.getItem('userSettingNorthSouthOffset')) {
+  if (localStorage.getItem("userSettingNorthSouthOffset")) {
 
-    document.getElementById('southNorthAdjustmentInputByUser').value = localStorage.getItem('userSettingNorthSouthOffset');
+    document.getElementById("southNorthAdjustmentInputByUser").value = localStorage.getItem("userSettingNorthSouthOffset");
   }
 
-  if (localStorage.getItem('userSettingEastWestOffset')) {
+  if (localStorage.getItem("userSettingEastWestOffset")) {
 
-    document.getElementById('eastWestAdjustmentInputByUser').value = localStorage.getItem('userSettingEastWestOffset');
+    document.getElementById("eastWestAdjustmentInputByUser").value = localStorage.getItem("userSettingEastWestOffset");
   }
 }
 
@@ -295,7 +295,7 @@ class leaderboardScore {
 }
 
 function getScoreboardFromLocalStorage() {
-  let scoreboardJSON = localStorage.getItem('scoreboard');
+  let scoreboardJSON = localStorage.getItem("scoreboard");
   return scoreboardJSON ? JSON.parse(scoreboardJSON) : [];
 }
 
@@ -308,12 +308,89 @@ function updateScoreboard(newScore) {
 
   let topTenScores = scoreboard.slice(0, 10);
 
-  localStorage.setItem('scoreboard', JSON.stringify(topTenScores));
+  localStorage.setItem("scoreboard", JSON.stringify(topTenScores));
 }
 
+function userInputNewScore(){
+
+  let playerName = prompt("Gebe hier deinen Namen ein:"); 
+  let playerAccociatedScore = localStorage.getItem("userScore");
+
+  let newScorePair = new leaderboardScore(playerName, playerAccociatedScore); 
+  
+  updateScoreboard(newScorePair); 
+  localStorage.setItem("userScore", 0); 
+}
+
+//following tutorial https://www.javatpoint.com/how-to-create-a-dynamic-table-in-javascript
+function buildLeaderboardTable(){
+
+  let scoreboard = getScoreboardFromLocalStorage(); 
+  let tableContainer = document.getElementById("leaderboard");
+
+  tableContainer.innerHTML = generateTable(scoreboard); 
+
+}
+
+function generateTable(data){
+
+  let table = "<table>";
+  table += "<tr><th>Rang</th><th>Name<th/><th>Punktestand</th></tr>"
+
+  data.forEach((element, index) => {
+    const rank = index + 1;
+    table += `<tr><td>${rank}</td><td>${element.name}</td><td>${element.score}</td></tr>`;
+
+  });
+  table += "</table>";
+  return table; 
+
+}
+
+function checkNumberOfRoundsPlayed() {
+  
+  try{
+    let roundCount = localStorage.getItem("roundsPlayedByUser"); 
+    if(Number(roundCount) == 10) {
+
+      userInputNewScore(); 
+      localStorage.setItem("roundsPlayedByUser", 0); 
+    }
+  }catch{
+    console.log("No rounds played.")
+
+  }
+
+}
+
+function updateLocalStorageWithGameStats(NumberOfPoints){
+
+  try{
+
+    let score = localStorage.getItem("userScore");
+    
+    console.log(score);
+    score = Number(score) + NumberOfPoints; 
+
+    let numberOfRounds = localStorage.getItem("roundsPlayedByUser");
+    numberOfRounds = Number(numberOfRounds) + 1; 
+
+    localStorage.setItem("roundsPlayedByUser", numberOfRounds); 
+    localStorage.setItem("userScore", score);
+    document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: "+ score + "!";
+
+    } catch{ 
+
+        let score = 0; 
+        localStorage.setItem("roundsPlayedByUser", 1); 
+        localStorage.setItem("userScore", score);
+        document.getElementById("MyScore").innerText = "Dein Punktestand beträgt: " + score +"!"; 
+    } 
+}
 
 updateGameSettings(); 
 initRandomCityList(); // präziser wäre initRandomCityIndexList...
+checkNumberOfRoundsPlayed(); 
 
 // hier besser dafür sorgen, dass die Buttons in einer Funktion initialisiert werden, im Idealfall eine Schleife von 1 bis numAnswers.
 displayRandomCityButton("AnswerA");
