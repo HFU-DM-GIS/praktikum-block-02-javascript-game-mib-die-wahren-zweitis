@@ -36,7 +36,7 @@ h3{
 }
 
 p{
-    font-size: 35px;
+    font-size: 33px;
     font-family:'Courier New', Courier, monospace;
     font-weight: bold;
     text-align: center;
@@ -74,16 +74,9 @@ a{
     border-radius: 10px; 
     cursor: pointer;
     display: block;
-<<<<<<< HEAD
     margin-left: 30px;
     margin-top: 10px;
-    margin-bottom: 0px;
-=======
-    margin-left: 80px;
-    margin-top: 70px;
-    margin-bottom: -90px;
-    align-self: auto;
->>>>>>> e960a1a813c28b5e06e5471684ed5e6c90727f46
+    margin-bottom: -50px;
 }
 
 #backButton:hover {
@@ -93,7 +86,7 @@ a{
 #AnswerA {
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 18px; 
+    font-size: 23px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
@@ -110,7 +103,7 @@ a{
 #AnswerB{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 18px; 
+    font-size: 23px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
@@ -127,7 +120,7 @@ a{
 #AnswerC{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 18px; 
+    font-size: 23px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
@@ -144,7 +137,7 @@ a{
 #AnswerD{
     background-color:rgb(189, 188, 188); 
     padding: 10px 20px; /* Innenabstand */
-    font-size: 18px; 
+    font-size: 23px; 
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
     border: solid; 
