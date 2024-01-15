@@ -57,12 +57,7 @@ const buttonD = {
 
 let buttonObj = [buttonA, buttonB, buttonC, buttonD];
 
-//Code testing / debugging. TODO: Delete later. 
-console.log(buttonA.identity, typeof (buttonA.identity));
-
-
-function getRandomCityName(buttonId) {
-  // hier passt der Name nicht so ganz... der Prefix get impliziert, dass etwas zurück gegeben wird und sonst nichts passiert (getter+setter, https://de.wikipedia.org/wiki/Zugriffsfunktion)... in eurem Fall werden aber einige globale Variablen verändert. Dadurch bewirkt der mehrfache Aufruf dieser Funktion immer etwas anderes.
+function getRandomCityNameAndSaveAsAnswerOption(buttonId) {
 
   let randomCity = cities[cityIndices[cityIndex]];
   cityIndex++;
@@ -86,7 +81,7 @@ function getRandomCityName(buttonId) {
 
 function displayRandomCityButton(buttonId) {
 
-  let cityName = getRandomCityName(buttonId);
+  let cityName = getRandomCityNameAndSaveAsAnswerOption(buttonId);
   document.getElementById(buttonId).innerText = "Antwort " + buttonId.charAt(buttonId.length - 1) + ": " + cityName;
 }
 
@@ -170,7 +165,7 @@ function checkButtonsForRightAnswer(buttonId) {
     // Redirect to right_screen.html
     window.location.href = "right_screen.html";
   } else {
-    // Redirect to wrong_screen.html or handle the incorrect answer logic
+    // Redirect to wrong_screen.html
     window.location.href = "wrong_screen.html";
   }
 }
@@ -388,25 +383,22 @@ function updateLocalStorageWithGameStats(NumberOfPoints){
     } 
 }
 
+function setupButtons(){
+
+  for(let i = 0; i < buttonId.length; i++){
+
+    displayRandomCityButton(buttonId[i]); 
+  }
+}
+
 updateGameSettings(); 
-initRandomCityList(); // präziser wäre initRandomCityIndexList...
+initRandomCityList(); 
 checkNumberOfRoundsPlayed(); 
-
-// hier besser dafür sorgen, dass die Buttons in einer Funktion initialisiert werden, im Idealfall eine Schleife von 1 bis numAnswers.
-displayRandomCityButton("AnswerA");
-displayRandomCityButton("AnswerB");
-displayRandomCityButton("AnswerC");
-displayRandomCityButton("AnswerD");
-
+setupButtons(); 
 //Shuffles the array that contains all answer options. 
 shuffle(cityAnswerOptions);
-
-//Only used for debugging. TODO: delete later.
-console.log(cityAnswerOptions[0].lng + " " + cityAnswerOptions[0].lat + " " + cityAnswerOptions[0].name);
-
 //Displays the correct part of the map. 
 setMapToAnswer();
- 
 startCountdownTillGameOver();
 
 
