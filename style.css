@@ -294,6 +294,17 @@ table{
     margin-right: auto;
 }
 
+#rankCell{
+    text-align: left;
+}
+
+#nameCell{
+    text-align: center;
+}
+
+#scoreCell{
+    text-align: right;
+}
 
 
 

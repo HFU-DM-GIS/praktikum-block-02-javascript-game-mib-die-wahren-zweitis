@@ -334,7 +334,7 @@ function generateTable(data){
 
   data.forEach((element, index) => {
     const rank = index + 1;
-    table += `<tr><td>${rank}</td><td>${element.name}</td><td>${element.score}</td></tr>`;
+    table += `<tr><td id="rankCell">${rank}</td><td id="nameCell">${element.name}</td><td id="scoreCell">${element.score}</td></tr>`;
 
   });
   table += "</table>";
@@ -346,7 +346,7 @@ function checkNumberOfRoundsPlayed() {
   
   try{
     let roundCount = localStorage.getItem("roundsPlayedByUser"); 
-    if(Number(roundCount) == 10) {
+    if(Number(roundCount) == 2) {
 
       userInputNewScore(); 
       localStorage.setItem("roundsPlayedByUser", 0); 
