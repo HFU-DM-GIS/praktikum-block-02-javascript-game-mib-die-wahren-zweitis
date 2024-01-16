@@ -183,7 +183,7 @@ function startCountdownTillGameOver() {
   if(gameTimeInSeconds) {
      counter = gameTimeInSeconds;
   } else {
-    counter = 45; 
+    counter = 60; 
   }
 
   const interval = setInterval(() => {
