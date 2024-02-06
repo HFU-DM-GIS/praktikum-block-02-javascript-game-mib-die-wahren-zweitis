@@ -57,8 +57,8 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![game1.png]
-![game2.png]
+![game1]
+![game2]
 
 This is the second project from the group "Die wahren zweitis".
 
