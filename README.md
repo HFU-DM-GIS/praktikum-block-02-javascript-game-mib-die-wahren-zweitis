@@ -36,8 +36,8 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Alt text](start1.png)
-![Alt text](sart2.png)
+![Alt text](images.game1.png)
+![Alt text](images.game2-1.png)
 
 This is the second project from the group "Die wahren zweitis".
 
@@ -85,9 +85,6 @@ All these features have their own class and thus you have the opportunity to vie
 - [ ] add options 
     - [ ] choose diffuculty (time, map section & shifitng of map section)
 - [ ] add leaderboard
-
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
