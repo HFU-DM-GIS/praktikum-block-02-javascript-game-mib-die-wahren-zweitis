@@ -36,8 +36,8 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Alt text](images.game1.png)
-![Alt text](images.game2-1.png)
+![Alt text](start1.png)
+![Alt text](start2.png)
 
 This is the second project from the group "Die wahren zweitis".
 
@@ -66,7 +66,7 @@ There is a limited time to decide.
 ![Alt text](game3.png)
 
 You as a player can choose the difficulty level yourself before the start and decide how much time you have per turn and what size the map section should have. The shifting of the map section can also be selected
-![Alt text](game3-1.png)
+![Alt text](options.png)
 
 During the game, points can be collected but also lost. At the end you have the opportunity to see your score in a ranking list
 ![Alt text](correct.png)
