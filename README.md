@@ -92,7 +92,7 @@ All these features have their own class and thus you have the opportunity to vie
 
 <!-- CONTACT -->
 ## Contact
-Mattis Depoorter - 
+Mattis Depoorter - m.depoorter@web.de
 Jasmin Herrmann - herrmannjasmin581@gmail.com 
 Gunta Japina - japina.gunta@gmail.com
 
