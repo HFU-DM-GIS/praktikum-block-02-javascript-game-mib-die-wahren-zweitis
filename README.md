@@ -8,20 +8,9 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
     <img src="images/logo.png" alt="Logo" width="500" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
 
   <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
-  </p>
+    A small interactive game where you have to guess where you are  
 </div>
 
 
@@ -32,23 +21,13 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -57,8 +36,8 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-![Alt text](game1.png)
-![Alt text](game2.png)
+![Alt text](start1.png)
+![Alt text](sart2.png)
 
 This is the second project from the group "Die wahren zweitis".
 
@@ -66,22 +45,7 @@ Our mission was to create a small functional game.
 
 We decided to make a similar game as "Geoguesser". This is a game where the player has to find out where he is in the world using streetview.
 
-We have changed the concept a bit. With us the player gets a map section where he sees street names etc. and with this info he has to indicate the country where the he is located.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
-* [![Next][Next.js]][Next-url]
-* [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+We have changed the concept a bit. With us the player gets a map section where he sees street names etc. and with this info he has to indicate the city where the he is located.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -90,84 +54,40 @@ We have changed the concept a bit. With us the player gets a map section where h
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
+For running this game, you just have to open the code in "Visual Studio Code" and run it with the Live Server of 'index.html'.
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+The game has a few features besides to the map section.
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+During the game you will be given four countries to choose from to decide which one you are in.
+There is a limited time to decide.
+![Alt text](game3.png)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+You as a player can choose the difficulty level yourself before the start and decide how much time you have per turn and what size the map section should have. The shifting of the map section can also be selected
+![Alt text](game3-1.png)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+During the game, points can be collected but also lost. At the end you have the opportunity to see your score in a ranking list
+![Alt text](correct.png)
+![Alt text](wrong.png)
 
+All these features have their own class and thus you have the opportunity to view each individual code and view the connection
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Design the logo and the look of the site
+- [ ] Add Map and define the map section
+    - [ ] Add Cities to choose of
+- [ ] add wrong, right & time-Over Screen
+- [ ] add options 
+    - [ ] choose diffuculty (time, map section & shifitng of map section)
+- [ ] add leaderboard
+
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -179,17 +99,7 @@ Mattis Depoorter -
 Jasmin Herrmann - herrmannjasmin581@gmail.com 
 Gunta Japina - japina.gunta@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/HFU-DM-GIS/praktikum-block-02-javascript-game-mib-die-wahren-zweitis](https://github.com/HFU-DM-GIS/praktikum-block-02-javascript-game-mib-die-wahren-zweitis)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* []()
-* []()
-* []()
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
