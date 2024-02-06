@@ -57,11 +57,14 @@ praktikum-block-02-javascript-game-mib-die-wahren-zweitis created by GitHub Clas
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](img src= game1.png) (img src= game2.png)
+[![Product Name Screen Shot][game1.png][game2.png]]
 
 This is the second project from the group "Die wahren zweitis".
+
 Our mission was to create a small functional game. 
+
 We decided to make a similar game as "Geoguesser". This is a game where the player has to find out where he is in the world using streetview.
+
 We have changed the concept a bit. With us the player gets a map section where he sees street names etc. and with this info he has to indicate the country where the he is located.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
